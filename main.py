@@ -65,7 +65,7 @@ def main():
             print("Invalid IP address")
             exit(1)
     elif args.d:
-        domain = args.domain
+        domain = args.d
         print("Going to be implemented in ver: 1.3.0")
     else:
         print("Please enter an IP address or domain name")
