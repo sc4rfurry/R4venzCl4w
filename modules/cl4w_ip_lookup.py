@@ -1,38 +1,15 @@
 #!/usr/bin/env python3
-#-*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 import socket
 import ipaddress
 from IPy import IP
 from rich.console import Console
 import whois
 from art import tprint
-
-
+from core.misc import bcolors
 
 console = Console()
 
-
-class bcolors:
-    HEADER = '\033[95m'
-    OKBLUE = '\033[94m'
-    OKCYAN = '\033[96m'
-    OKGREEN = '\033[92m'
-    WARNING = '\033[93m'
-    FAIL = '\033[91m'
-    ENDC = '\033[0m'
-    BOLD = '\033[1m'
-    UNDERLINE = '\033[4m'
-
-    def disable(self):
-        self.HEADER = ''
-        self.OKBLUE = ''
-        self.OKCYAN = ''
-        self.OKGREEN = ''
-        self.WARNING = ''
-        self.FAIL = ''
-        self.ENDC = ''
-        self.BOLD = ''
-        self.UNDERLINE = ''
 
 
 class ascii_art:
@@ -41,7 +18,6 @@ class ascii_art:
 
     def banner(self):
         tprint("--> IP Toolkit\n", font="small", chr_ignore=True)
-
 
 
 class ReverseDNS:
@@ -63,9 +39,10 @@ class ReverseDNS:
         except Exception:
             return None
         except KeyboardInterrupt:
-            console.print("[yellow bold]" + "[~] " + "[/yellow bold]", "[red bold]Keyboard Interrupted[/red bold]", style="blink")
+            console.print("[yellow bold]" + "[~] " + "[/yellow bold]",
+                          "[red bold]Keyboard Interrupted[/red bold]", style="blink")
             exit(1)
-        
+
 
 class DnsLookup:
     def __init__(self, ip):
@@ -86,7 +63,8 @@ class DnsLookup:
         except Exception as e:
             console.print(e)
         except KeyboardInterrupt:
-            console.print("[yellow bold]" + "[~] " + "[/yellow bold]", "[red bold]Keyboard Interrupted[/red bold]", style="blink")
+            console.print("[yellow bold]" + "[~] " + "[/yellow bold]",
+                          "[red bold]Keyboard Interrupted[/red bold]", style="blink")
             exit(1)
 
 
@@ -103,9 +81,10 @@ class ValidateIP:
         except Exception as e:
             console.print(e)
         except KeyboardInterrupt:
-            console.print("[yellow bold]" + "[~] " + "[/yellow bold]", "[red bold]Keyboard Interrupted[/red bold]", style="blink")
+            console.print("[yellow bold]" + "[~] " + "[/yellow bold]",
+                          "[red bold]Keyboard Interrupted[/red bold]", style="blink")
             exit(1)
-        
+
 
 class IpType:
     def __init__(self, ip):
@@ -125,7 +104,8 @@ class IpType:
         except Exception:
             return "Unknown"
         except KeyboardInterrupt:
-            console.print("[yellow bold]" + "[~] " + "[/yellow bold]", "[red bold]Keyboard Interrupted[/red bold]", style="blink")
+            console.print("[yellow bold]" + "[~] " + "[/yellow bold]",
+                          "[red bold]Keyboard Interrupted[/red bold]", style="blink")
             exit(1)
 
 
@@ -144,5 +124,6 @@ class Whois:
         except Exception:
             return None
         except KeyboardInterrupt:
-            console.print("[yellow bold]" + "[~] " + "[/yellow bold]", "[red bold]Keyboard Interrupted[/red bold]", style="blink")
+            console.print("[yellow bold]" + "[~] " + "[/yellow bold]",
+                          "[red bold]Keyboard Interrupted[/red bold]", style="blink")
             exit(1)

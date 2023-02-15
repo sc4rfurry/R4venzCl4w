@@ -7,29 +7,8 @@ from art import text2art
 from os import name as nm
 from user_agent import generate_user_agent
 import json
+from core.misc import bcolors
 
-
-class bcolors:
-    HEADER = '\033[95m'
-    OKBLUE = '\033[94m'
-    OKCYAN = '\033[96m'
-    OKGREEN = '\033[92m'
-    WARNING = '\033[93m'
-    FAIL = '\033[91m'
-    ENDC = '\033[0m'
-    BOLD = '\033[1m'
-    UNDERLINE = '\033[4m'
-
-    def disable(self):
-        self.HEADER = ''
-        self.OKBLUE = ''
-        self.OKCYAN = ''
-        self.OKGREEN = ''
-        self.WARNING = ''
-        self.FAIL = ''
-        self.ENDC = ''
-        self.BOLD = ''
-        self.UNDERLINE = ''
 
 
 disable_warnings()
@@ -42,6 +21,7 @@ def geo__banner__():
     banner = text2art("GeoLocation", font="small")
     print(f"\n{bcolors.WARNING}{banner}{bcolors.ENDC}")
 
+
 class GeoLocation:
     def __init__(self, ip):
         self.ip = ip
@@ -49,7 +29,8 @@ class GeoLocation:
     def get_geo_location(self):
         try:
             url = f"http://ip-api.com/json/{self.ip}"
-            resp = urllib3.PoolManager().request("GET", url, headers={"User-Agent": user_agent})
+            resp = urllib3.PoolManager().request(
+                "GET", url, headers={"User-Agent": user_agent})
             data = resp.data.decode("utf-8")
             data = json.loads(data)
             ip = data["query"]
@@ -72,7 +53,7 @@ class GeoLocation:
             [bold red]Timezone:[/bold red] {timezone}
             [bold red]Zip Code:[/bold red] {zip_code}
             [bold red]Latitude:[/bold red] {lat}
-            [bold red]Longitude:[/bold red] {lon}""")            
+            [bold red]Longitude:[/bold red] {lon}""")
         except Exception as e:
             print(e)
         except KeyboardInterrupt:

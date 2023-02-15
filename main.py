@@ -1,43 +1,25 @@
 #!/usr/bin/env python3
+# ~*- coding: utf-8 -*-
 from modules.cl4w_ip_lookup import ReverseDNS, DnsLookup, ValidateIP, IpType, ascii_art, Whois
 from modules.cl4w_port_scanner import PortScanner
 from modules.cl4w_traceroute import ICMP, Traceroute, trc__banner__, icmp__banner__
 from modules.cl4w_geoLocation import GeoLocation, geo__banner__
 from modules.cl4w_badlist import BadList
 from modules.cl4w_shodan import Shodan, shodan__banner__
+from modules.cl4w_offensive import Offensive, o3__banner__
 from core.ip_lookup import ProgressBar, DisplayDns, DisplayWhois
-from core.misc import Cl4w
+from core.misc import Cl4w, Readme
 import argparse
 from sys import exit
 
-
-class bcolors:
-    HEADER = '\033[95m'
-    OKBLUE = '\033[94m'
-    OKCYAN = '\033[96m'
-    OKGREEN = '\033[92m'
-    WARNING = '\033[93m'
-    FAIL = '\033[91m'
-    ENDC = '\033[0m'
-    BOLD = '\033[1m'
-    UNDERLINE = '\033[4m'
-
-    def disable(self):
-        self.HEADER = ''
-        self.OKBLUE = ''
-        self.OKCYAN = ''
-        self.OKGREEN = ''
-        self.WARNING = ''
-        self.FAIL = ''
-        self.ENDC = ''
-        self.BOLD = ''
-        self.UNDERLINE = ''
 
 
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("-i", help="IP address to lookup")
     parser.add_argument("-d", help="Domain to Enumerate")
+    parser.add_argument("-x", help="Run Host Enumeration on IP, Domain, IP Range, or Selected IP's. example: 192.168.11.11 | 142.250.181.174-255 | 192.168.11.11,192.168.11.12")
+    parser.add_argument("-rd", help="Displays the Readme file", default='readme', action='store_true')
     args = parser.parse_args()
     Cl4w.banner(self=Cl4w)
     if args.i:
@@ -65,8 +47,14 @@ def main():
             print("Invalid IP address")
             exit(1)
     elif args.d:
-        domain = args.domain
+        domain = args.d
         print("Going to be implemented in ver: 1.3.0")
+    elif args.x:
+        input = args.x
+        o3__banner__()
+        Offensive(input).o3__scan__()
+    elif args.rd:
+        Readme().render()
     else:
         print("Please enter an IP address or domain name")
         exit(1)

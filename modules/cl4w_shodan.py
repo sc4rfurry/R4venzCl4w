@@ -4,30 +4,7 @@ from rich.console import Console
 from rich.panel import Panel
 from os import name as nm, environ, path, getcwd
 from load_xl import read_config_file
-
-
-
-class bcolors:
-    HEADER = '\033[95m'
-    OKBLUE = '\033[94m'
-    OKCYAN = '\033[96m'
-    OKGREEN = '\033[92m'
-    WARNING = '\033[93m'
-    FAIL = '\033[91m'
-    ENDC = '\033[0m'
-    BOLD = '\033[1m'
-    UNDERLINE = '\033[4m'
-
-    def disable(self):
-        self.HEADER = ''
-        self.OKBLUE = ''
-        self.OKCYAN = ''
-        self.OKGREEN = ''
-        self.WARNING = ''
-        self.FAIL = ''
-        self.ENDC = ''
-        self.BOLD = ''
-        self.UNDERLINE = ''
+from core.misc import bcolors
 
 
 try:
@@ -72,13 +49,17 @@ class Shodan:
     def get_results(self):
         try:
             if self.api_key is None:
-                print(f"{bcolors.FAIL}Error: SHODAN_API_KEY is not set in config file{bcolors.ENDC}")
-                print(f"{bcolors.FAIL}Shodan Scan {bcolors.ENDC} -- {bcolors.WARNING}Skipped{bcolors.ENDC}")
+                print(
+                    f"{bcolors.FAIL}Error: SHODAN_API_KEY is not set in config file{bcolors.ENDC}")
+                print(
+                    f"{bcolors.FAIL}Shodan Scan {bcolors.ENDC} -- {bcolors.WARNING}Skipped{bcolors.ENDC}")
                 return
             elif self.api_key == "null":
                 print(f"\n{bcolors.FAIL}Config File not found{bcolors.ENDC}")
-                print(f"{bcolors.FAIL}Please make sure to create a .configx file{bcolors.ENDC}")
-                print(f"{bcolors.FAIL}Shodan Scan {bcolors.ENDC} -- {bcolors.WARNING}Skipped{bcolors.ENDC}")
+                print(
+                    f"{bcolors.FAIL}Please make sure to create a .configx file{bcolors.ENDC}")
+                print(
+                    f"{bcolors.FAIL}Shodan Scan {bcolors.ENDC} -- {bcolors.WARNING}Skipped{bcolors.ENDC}")
                 return
             else:
                 api = shodan.Shodan(self.api_key)

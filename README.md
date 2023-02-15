@@ -50,9 +50,12 @@ A modular Framework for **Pentesters** and **Bug Hunters** written in Python3.
     - [x] Trace
     - [x] GeoLocation
     - [x] Shodan                (Scans Host on Shodan using Shodan's API: `API key Required`)
+* Offensive Tools
+    - [x] Fscan ([`shadow1ng's`](https://github.com/shadow1ng) Tool [**fscan**](https://github.com/shadow1ng/fscan/blob/main/README_EN.md) **-->** An intranet comprehensive scanning tool)
+    > Visit the [**fscan**](https://github.com/shadow1ng/fscan) repository for more information. For `usage` read the [**README.md**](https://github.com/shadow1ng/fscan/blob/main/README_EN.md) file. (Use on your own risk)
 - Domain Enumeration
     - [ ] Going to be implemented in **ver: 1.3.0**
-    > `Current version: 1.2.0` -   **Stable**
+    > `Current version: 1.2.1` -   **Stable**
 #
 ##
 
@@ -108,6 +111,8 @@ python3 main.py -i [IP Address]
 ```bash
         -i              IP Address to Enumerate
         -d              Domain to Enumerate  # Going to be implemented in **ver: 1.3.0**
+        -x              Run Run Host Enumeration on IP, Domain, IP Range, or Selected IPs.
+        -rd             Render the README.md file
         -h              Help Menu
 ```
 
@@ -116,12 +121,15 @@ python3 main.py -i [IP Address]
 #### Example
 ```bash
 1) python3 main.py -i 1.1.1.1
-2) python3 main.py -i 8.8.8.8
+2) python3 main.py -x 192.168.0.1-122
+3) python3 main.py -x 1.1.1.1
+4) python3 main.py -x 192.168.0.1,192.168.0.12
 ```
 #
 
 ## Todo
-- [x] To add More Modules
+- [x] Add More Modules
+- [ ] Add more Offensive Tools
 - [ ] Optimize the Workflow
 - [ ] Implement Domain Enumeration
 - [ ] Saving results in json, text Format

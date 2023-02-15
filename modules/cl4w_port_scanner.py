@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
-#~*- coding: utf-8 -*-
+# ~*- coding: utf-8 -*-
 from rich.console import Console
 from subprocess import call, check_output
 from os import path, system
-from os import name as  nm
+from os import name as nm
 from sys import exit
 from shutil import which
 from shlex import split as sp
 from os import getcwd
-
+from core.misc import bcolors
 
 console = Console()
 linux_bin_url = "https://github.com/sc4rfurry/nimd4-ng/releases/download/v1.0/nimd4_linux_amd64"
@@ -24,46 +24,20 @@ else:
 
 
 
-class bcolors:
-    HEADER = '\033[95m'
-    OKBLUE = '\033[94m'
-    OKCYAN = '\033[96m'
-    OKGREEN = '\033[92m'
-    WARNING = '\033[93m'
-    FAIL = '\033[91m'
-    ENDC = '\033[0m'
-    BOLD = '\033[1m'
-    UNDERLINE = '\033[4m'
-
-    def disable(self):
-        self.HEADER = ''
-        self.OKBLUE = ''
-        self.OKCYAN = ''
-        self.OKGREEN = ''
-        self.WARNING = ''
-        self.FAIL = ''
-        self.ENDC = ''
-        self.BOLD = ''
-        self.UNDERLINE = ''
-
-
-
-
-
 class PortScanner:
     def __init__(self, host):
         self.host = host
-        self.port_range = input(f"{bcolors.OKGREEN}[+]{bcolors.ENDC} Enter port range to scan (ex: 1-1000): ")
+        self.port_range = input(
+            f"{bcolors.OKGREEN}[+]{bcolors.ENDC} Enter port range to scan (ex: 1-1000): ")
         while True:
             if self.port_range == "":
-                self.port_range = input(f"{bcolors.OKGREEN}[+]{bcolors.ENDC} Enter port range to scan (ex: 1-1000): ")
+                self.port_range = input(
+                    f"{bcolors.OKGREEN}[+]{bcolors.ENDC} Enter port range to scan (ex: 1-1000): ")
             else:
                 break
 
-
     def task_description(self):
         return "Port Scanner"
-
 
     def get_port_status(self):
         try:

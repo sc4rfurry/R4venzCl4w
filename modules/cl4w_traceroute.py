@@ -1,43 +1,18 @@
 #!/usr/bin/env python3
 # ~*- coding: utf-8 -*-
-from subprocess import call, PIPE
+from subprocess import call
 from shlex import split
 from os import name, system
 from shutil import which
 from art import text2art
 from rich.console import Console
-
-
-class bcolors:
-    HEADER = '\033[95m'
-    OKBLUE = '\033[94m'
-    OKCYAN = '\033[96m'
-    OKGREEN = '\033[92m'
-    WARNING = '\033[93m'
-    FAIL = '\033[91m'
-    ENDC = '\033[0m'
-    BOLD = '\033[1m'
-    UNDERLINE = '\033[4m'
-
-    def disable(self):
-        self.HEADER = ''
-        self.OKBLUE = ''
-        self.OKCYAN = ''
-        self.OKGREEN = ''
-        self.WARNING = ''
-        self.FAIL = ''
-        self.ENDC = ''
-        self.BOLD = ''
-        self.UNDERLINE = ''
-
+from core.misc import bcolors
 
 
 
 console = Console()
 os = name
 ping_path = which("ping").lower()
-
-
 
 
 def trc__banner__():
@@ -60,6 +35,7 @@ def icmp__banner__():
 """
     print("\n", f"{bcolors.WARNING}{banner} {bcolors.ENDC}")
 
+
 class Traceroute:
     def __init__(self, host):
         self.host = host
@@ -70,15 +46,20 @@ class Traceroute:
                 if which("tracert") is not None:
                     traceroute_path = which("tracert").lower()
                 else:
-                    print(f"\n{bcolors.OKCYAN}{bcolors.UNDERLINE}tracert.exe{bcolors.FAIL} not found{bcolors.ENDC}")
-                    print(f"{bcolors.FAIL}Traceroute {bcolors.ENDC} -- {bcolors.WARNING}Skipped{bcolors.ENDC}")
+                    print(
+                        f"\n{bcolors.OKCYAN}{bcolors.UNDERLINE}tracert.exe{bcolors.FAIL} not found{bcolors.ENDC}")
+                    print(
+                        f"{bcolors.FAIL}Traceroute {bcolors.ENDC} -- {bcolors.WARNING}Skipped{bcolors.ENDC}")
             else:
                 if which("traceroute") is not None:
                     traceroute_path = which("traceroute")
                 else:
-                    print(f"\n{bcolors.OKCYAN}{bcolors.UNDERLINE}traceroute{bcolors.FAIL} not found{bcolors.ENDC}")
-                    print(f"{bcolors.OKGREEN}You can download it using apt {bcolors.ENDC} --> {bcolors.OKCYAN}sudo apt-get install traceroute{bcolors.ENDC}")
-                    print(f"{bcolors.FAIL}Traceroute {bcolors.ENDC} -- {bcolors.WARNING}Skipped{bcolors.ENDC}")
+                    print(
+                        f"\n{bcolors.OKCYAN}{bcolors.UNDERLINE}traceroute{bcolors.FAIL} not found{bcolors.ENDC}")
+                    print(
+                        f"{bcolors.OKGREEN}You can download it using apt {bcolors.ENDC} --> {bcolors.OKCYAN}sudo apt-get install traceroute{bcolors.ENDC}")
+                    print(
+                        f"{bcolors.FAIL}Traceroute {bcolors.ENDC} -- {bcolors.WARNING}Skipped{bcolors.ENDC}")
             cmd = f"{traceroute_path} {self.host}"
             if os == "nt":
                 cmd = f"{traceroute_path} {self.host}"
