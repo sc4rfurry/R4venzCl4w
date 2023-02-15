@@ -1,0 +1,12 @@
+% Config File for R4wenzCl4w
+
+
+# Global Settings
+# Global Variables are defined here. These variables can be used in any of the other sections.
+$ GLOBAL_VAR: <Global Variable Here>
+
+
+
+# Environment Variables
+# Shodan API Key Example --> SHODAN_API_KEY:gA**************************
+- SHODAN_API_KEY:<API Key Here>
