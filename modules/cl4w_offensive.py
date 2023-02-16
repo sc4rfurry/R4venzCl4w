@@ -99,6 +99,7 @@ class Offensive:
             if self.validate_input():
                 if os == "nt":
                     __path__ = path.join(wd, "core", "bin", "fscan64.exe")
+                    __path__ = r'"' + __path__ + r'"'
                     cmd = f"{__path__} -h {self.input} -full -no"
                     system(cmd)
                 else:
