@@ -23,18 +23,16 @@ else:
     bin_path = path.join(wd, "core", "bin", "nimd4_linux_amd64")
 
 
-
 class PortScanner:
     def __init__(self, host):
         self.host = host
-        self.port_range = input(
-            f"{bcolors.OKGREEN}[+]{bcolors.ENDC} Enter port range to scan (ex: 1-1000): ")
-        while True:
-            if self.port_range == "":
-                self.port_range = input(
-                    f"{bcolors.OKGREEN}[+]{bcolors.ENDC} Enter port range to scan (ex: 1-1000): ")
-            else:
-                break
+        try:
+            self.port_range = input(
+                f"{bcolors.OKGREEN}[+]{bcolors.ENDC} Enter port range to scan {bcolors.OKCYAN}{bcolors.BOLD}(ex: 1-1000){bcolors.ENDC}: ")
+        except KeyboardInterrupt:
+            console.print("\n[yellow bold]" + "[~] " + "[/yellow bold]",
+                          "[red bold]Keyboard Interrupted[/red bold]", style="blink")
+            exit(1)
 
     def task_description(self):
         return "Port Scanner"
@@ -60,6 +58,6 @@ class PortScanner:
         except Exception:
             console.print_exception(show_locals=True)
         except KeyboardInterrupt:
-            console.print("[yellow bold]" + "[~] " + "[/yellow bold]",
+            console.print("\n[yellow bold]" + "[~] " + "[/yellow bold]",
                           "[red bold]Keyboard Interrupted[/red bold]", style="blink")
             exit(1)

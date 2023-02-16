@@ -12,7 +12,7 @@ try:
 except ImportError:
     print("Please install shodan module")
     print("python3 -m pip install shodan")
-    print(f"{bcolors.FAIL}Shodan Scan {bcolors.ENDC} -- {bcolors.WARNING}Skipped{bcolors.ENDC}")
+    print(f"{bcolors.FAIL}Error {bcolors.ENDC} --> {bcolors.WARNING}(Fatal Error ..!){bcolors.ENDC}")
     exit(1)
 
 

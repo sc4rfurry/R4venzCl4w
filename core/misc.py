@@ -3,12 +3,13 @@
 from rich.console import Console
 from rich.panel import Panel
 from rich.markdown import Markdown
-from os import path, getcwd
+from os import path, getcwd, name as nm
 from sys import exit
 
 
 console = Console()
 wd = getcwd()
+os = nm
 
 
 class Cl4w:
@@ -82,14 +83,19 @@ class bcolors:
 
 class Readme:
     def __init__(self):
-        self.__path__ = path.join(wd, "README.md")
+        if os == "nt":
+            self.__path__ = path.join(wd, "README.md")
+            self.__path__ = r'"' + __path__ + r'"'
+        else:
+            self.__path__ = path.join(wd, "README.md")
 
     def render(self):
         try:
             if path.exists(self.__path__) and path.isfile(self.__path__):
                 with open(self.__path__, 'r') as readme:
                     markdown = readme.read()
-                panel = Panel.fit(Markdown(markdown), title="README.md", border_style="red")
+                panel = Panel.fit(Markdown(markdown),
+                                  title="README.md", border_style="red")
                 console.print(panel)
             else:
                 console.print("[bold red]README.md not found![/bold red]")

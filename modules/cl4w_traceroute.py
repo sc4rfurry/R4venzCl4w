@@ -4,10 +4,8 @@ from subprocess import call
 from shlex import split
 from os import name, system
 from shutil import which
-from art import text2art
 from rich.console import Console
 from core.misc import bcolors
-
 
 
 console = Console()

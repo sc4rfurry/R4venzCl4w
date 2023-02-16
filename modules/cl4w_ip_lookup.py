@@ -6,10 +6,9 @@ from IPy import IP
 from rich.console import Console
 import whois
 from art import tprint
-from core.misc import bcolors
+
 
 console = Console()
-
 
 
 class ascii_art:
