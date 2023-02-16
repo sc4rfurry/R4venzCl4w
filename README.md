@@ -51,8 +51,8 @@ A modular Framework for **Pentesters** and **Bug Hunters** written in Python3.
     - [x] GeoLocation
     - [x] Shodan                (Scans Host on Shodan using Shodan's API: `API key Required`)
 * Offensive Tools
-    - [x] Fscan ([`shadow1ng's`](https://github.com/shadow1ng) Tool [**fscan**](https://github.com/shadow1ng/fscan/blob/main/README_EN.md) **-->** An intranet comprehensive scanning tool)
-    > Visit the [**fscan**](https://github.com/shadow1ng/fscan) repository for more information. For `usage` read the [**README.md**](https://github.com/shadow1ng/fscan/blob/main/README_EN.md) file. (Use on your own risk)
+    - [x] Fscan ([`shadow1ng's`](https://github.com/shadow1ng) Tool [**fscan**](https://github.com/shadow1ng/fscan) **-->** An intranet comprehensive scanning tool)
+    > Visit the [**fscan**](https://github.com/shadow1ng/fscan) repository for more information. For `usage` read the [**README.md**](https://github.com/shadow1ng/fscan/blob/main/README_EN.md) file. `( Use on your own risk ..!)`
 - Domain Enumeration
     - [ ] Going to be implemented in **ver: 1.3.0**
     > `Current version: 1.2.1` -   **Stable**
@@ -124,6 +124,7 @@ python3 main.py -i [IP Address]
 2) python3 main.py -x 192.168.0.1-122
 3) python3 main.py -x 1.1.1.1
 4) python3 main.py -x 192.168.0.1,192.168.0.12
+5) python3 main.py -x example.com
 ```
 #
 
