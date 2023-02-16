@@ -70,6 +70,7 @@ class Offensive:
         try:
             if os == "nt":
                 __path__ = path.join(wd, "core", "bin", "fscan64.exe")
+                __path__ = r'"' + __path__ + r'"'
                 if path.exists(__path__) and path.isfile(__path__):
                     print(
                         f"\t\t{bcolors.OKGREEN}[*] Fscan found..!{bcolors.ENDC}")
