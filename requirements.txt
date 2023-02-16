@@ -18,3 +18,5 @@ user-agent
 load_xl
 shodan
 wget
+proxy-ninja-ng
+emoji

@@ -7,19 +7,22 @@ from modules.cl4w_geoLocation import GeoLocation, geo__banner__
 from modules.cl4w_badlist import BadList
 from modules.cl4w_shodan import Shodan, shodan__banner__
 from modules.cl4w_offensive import Offensive, o3__banner__
+from modules.cl4w_fetch_proxies import ProxyNinja, xxx__banner__
 from core.ip_lookup import ProgressBar, DisplayDns, DisplayWhois
 from core.misc import Cl4w, Readme
 import argparse
 from sys import exit
 
 
-
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("-i", help="IP address to lookup")
     parser.add_argument("-d", help="Domain to Enumerate")
-    parser.add_argument("-x", help="Run Host Enumeration on IP, Domain, IP Range, or Selected IP's. example: 192.168.11.11 | 142.250.181.174-255 | 192.168.11.11,192.168.11.12")
-    parser.add_argument("-rd", help="Displays the Readme file", default='readme', action='store_true')
+    parser.add_argument(
+        "-x", help="Run Host Enumeration on IP, Domain, IP Range, or Selected IP's. example: 192.168.11.11 | 142.250.181.174-255 | 192.168.11.11,192.168.11.12")
+    parser.add_argument("-fp", help="Fetch https/socks4 Proxies")
+    parser.add_argument(
+        "-r", help="Displays the Readme file", action='store_true')
     args = parser.parse_args()
     Cl4w.banner(self=Cl4w)
     if args.i:
@@ -28,7 +31,8 @@ def main():
         if ValidateIP(ip).validate_ip():
             for task in [DnsLookup.task_description, ReverseDNS.task_description, IpType.task_description]:
                 ProgressBar(task(ip)).progress_bar()
-            DisplayDns(ip, DnsLookup(ip).get_dns(), ReverseDNS(ip).get_reverse_dns(), IpType(ip).get_ip_type()).show_results()
+            DisplayDns(ip, DnsLookup(ip).get_dns(), ReverseDNS(
+                ip).get_reverse_dns(), IpType(ip).get_ip_type()).show_results()
             for task in [Whois.task_description]:
                 ProgressBar(task(ip)).progress_bar()
             DisplayWhois(Whois(ip).get_whois()).show_results()
@@ -53,13 +57,16 @@ def main():
         input = args.x
         o3__banner__()
         Offensive(input).o3__scan__()
-    elif args.rd:
+    elif args.r:
         Readme().render()
+    elif args.fp:
+        proxy_type = args.fp
+        xxx__banner__()
+        print(ProxyNinja(proxy_type).get_proxies())
+
     else:
         print("Please enter an IP address or domain name")
         exit(1)
-
-
 
 
 if __name__ == "__main__":

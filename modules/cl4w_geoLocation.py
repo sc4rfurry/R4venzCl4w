@@ -10,7 +10,6 @@ import json
 from core.misc import bcolors
 
 
-
 disable_warnings()
 os = nm
 user_agent = generate_user_agent(os="win")
