@@ -51,7 +51,7 @@ A modular Framework for **Pentesters** and **Bug Hunters** written in Python3.
     - [x] GeoLocation
     - [x] Shodan                (Scans Host on Shodan using Shodan's API: `API key Required`)
 * Offensive Tools
-      - [x] Fscan ([`shadow1ng's`](https://github.com/shadow1ng) Tool [**fscan**](https://github.com/shadow1ng/fscan) **-->** An intranet comprehensive scanning tool)
+    - [x] Fscan ([`shadow1ng's`](https://github.com/shadow1ng) Tool [**fscan**](https://github.com/shadow1ng/fscan) **-->** An intranet comprehensive scanning tool)
     > Visit the [**fscan**](https://github.com/shadow1ng/fscan) repository for more information. For `usage` read the [**README.md**](https://github.com/shadow1ng/fscan/blob/main/README_EN.md) file. ( Use on your own risk ..!)
 * Proxy Fetcher
     - [x] Fetch the Public Proxies (HTTPS, SOCKS4)
