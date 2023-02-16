@@ -16,6 +16,8 @@ validate_ip = re.compile(
     r"^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$")
 validate_cidr = re.compile(
     r'^(\d{1,3}\.\d{1,3}\.\d{1,3}\.)(\d{1,3})-(\d{1,3})$')
+domain_regex = re.compile(
+    r'^([a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,}$')
 win64_bin_url = "https://github.com/shadow1ng/fscan/releases/download/1.8.2/fscan64.exe"
 linux_bin_url = "https://github.com/shadow1ng/fscan/releases/download/1.8.2/fscan_amd64"
 os = name
@@ -60,6 +62,8 @@ class Offensive:
             return True
         elif validate_ip.match(self.input):
             return True
+        elif domain_regex.match(self.input):
+            return True
         else:
             return False
 
@@ -68,22 +72,28 @@ class Offensive:
             if os == "nt":
                 __path__ = path.join(wd, "core", "bin", "fscan64.exe")
                 if path.exists(__path__) and path.isfile(__path__):
-                    print(f"\t\t{bcolors.OKGREEN}[*] Fscan found..!{bcolors.ENDC}")
+                    print(
+                        f"\t\t{bcolors.OKGREEN}[*] Fscan found..!{bcolors.ENDC}")
                     return
                 else:
-                    print(f"{bcolors.FAIL}[~] Fscan not found..!{bcolors.ENDC}")
-                    print(f"{bcolors.OKCYAN}[*] Downloading fscan_amd64...{bcolors.ENDC}")
+                    print(
+                        f"{bcolors.FAIL}[~] Fscan not found..!{bcolors.ENDC}")
+                    print(
+                        f"{bcolors.OKCYAN}[*] Downloading fscan_amd64...{bcolors.ENDC}")
                     wget.download(win64_bin_url, bin_path)
                     cmd = f"{_chmod} +x {__path__}"
                     system(cmd)
             else:
                 __path__ = path.join(wd, "core", "bin", "fscan_amd64")
                 if path.exists(__path__) and path.isfile(__path__):
-                    print(f"\t\t{bcolors.OKGREEN}[*] Fscan found..!{bcolors.ENDC}")
+                    print(
+                        f"\t\t{bcolors.OKGREEN}[*] Fscan found..!{bcolors.ENDC}")
                     return
                 else:
-                    print(f"{bcolors.FAIL}[~] Fscan not found..!{bcolors.ENDC}")
-                    print(f"{bcolors.OKCYAN}[*] Downloading fscan_amd64...{bcolors.ENDC}")
+                    print(
+                        f"{bcolors.FAIL}[~] Fscan not found..!{bcolors.ENDC}")
+                    print(
+                        f"{bcolors.OKCYAN}[*] Downloading fscan_amd64...{bcolors.ENDC}")
                     wget.download(linux_bin_url, bin_path)
         except Exception as e:
             print(f"{bcolors.FAIL}Error: {e} {bcolors.ENDC}")

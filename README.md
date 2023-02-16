@@ -85,7 +85,7 @@ After that run the following commands:
 ## Config
 > `Shodan`  module uses the Shodan's API so make sure you have `.configx` file in your folder. If the `.configx` file is not there you can create it with the following Data:
 ```bash
-% Config File for R4wenzCl4w
+% Config File for R4venzCl4w
 
 
 # Global Settings
