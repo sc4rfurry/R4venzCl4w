@@ -21,7 +21,6 @@ linux_bin_url = "https://github.com/shadow1ng/fscan/releases/download/1.8.2/fsca
 os = name
 wd = getcwd()
 _chmod = which("chmod")
-_chown = which("chown")
 console = Console()
 bin_path = path.join(wd, "core", "bin")
 
@@ -52,6 +51,12 @@ class Offensive:
             else:
                 return False
         elif "," in self.input:
+            _list = self.input.split(",")
+            for ip in _list:
+                if validate_ip.match(ip):
+                    continue
+                else:
+                    return False
             return True
         elif validate_ip.match(self.input):
             return True
