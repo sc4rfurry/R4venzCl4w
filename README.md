@@ -23,7 +23,9 @@ A modular Framework for **Pentesters** and **Bug Hunters** written in Python3.
 - Quick and easy to use
 - Modular Framework
 - Enumerate IP(Dns, Whois, Port Scanning, Blacklist Checker, Ping, Traceroute, Geolocation) etc.
-- Scans Host using `Shodan's API` 
+- Scans Host using `Shodan's API`
+- Fetch the Public Proxies (HTTPS, SOCKS4)
+- Run Host Enumeration on IP, Domain, IP Range, or Selected IPs   [`fscan`](https://github.com/shadow1ng/fscan).
 
 > `Note:` Please keep in mind that the tool is still in development and more features will be added soon.
 #
