@@ -26,6 +26,7 @@ A modular Framework for **Pentesters** and **Bug Hunters** written in Python3.
 - Scans Host using `Shodan's API`
 - Fetch the Public Proxies (HTTPS, SOCKS4)
 - Run Host Enumeration on IP, Domain, IP Range, or Selected IPs   [`fscan`](https://github.com/shadow1ng/fscan).
+- Asn Lookup  ( **Ip2Asn** and **ASN** to **CIDR** )
 
 > `Note:` Please keep in mind that the tool is still in development and more features will be added soon.
 #
@@ -52,6 +53,7 @@ A modular Framework for **Pentesters** and **Bug Hunters** written in Python3.
     - [x] Trace
     - [x] GeoLocation
     - [x] Shodan                (Scans Host on Shodan using Shodan's API: `API key Required`)
+    - [x] Asn Lookup           ( **Ip2Asn** and **ASN** to **CIDR** )
 * Offensive Tools
     - [x] Fscan ([`shadow1ng's`](https://github.com/shadow1ng) Tool [**fscan**](https://github.com/shadow1ng/fscan) **-->** An intranet comprehensive scanning tool)
     > Visit the [**fscan**](https://github.com/shadow1ng/fscan) repository for more information. For `usage` read the [**README.md**](https://github.com/shadow1ng/fscan/blob/main/README_EN.md) file. ( Use on your own risk ..!)

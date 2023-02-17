@@ -8,6 +8,7 @@ from modules.cl4w_badlist import BadList
 from modules.cl4w_shodan import Shodan, shodan__banner__
 from modules.cl4w_offensive import Offensive, o3__banner__
 from modules.cl4w_fetch_proxies import ProxyNinja, xxx__banner__
+from modules.cl4w_asnlookup import AsnLookup, asn__banner__
 from core.ip_lookup import ProgressBar, DisplayDns, DisplayWhois
 from core.misc import Cl4w, Readme
 import argparse
@@ -47,6 +48,8 @@ def main():
             BadList(ip).bl__check__()
             shodan__banner__()
             Shodan(ip).get_results()
+            asn__banner__()
+            AsnLookup(ip).asnmap()
         else:
             print("Invalid IP address")
             exit(1)

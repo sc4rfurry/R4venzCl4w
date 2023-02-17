@@ -3,12 +3,11 @@
 from rich.console import Console
 from shlex import split
 from subprocess import call
-from os import path, getcwd, system, name
+from os import path, getcwd, system, name, chmod
 import re
 from sys import exit
-from core.misc import bcolors
+from .utils import bcolors
 import wget
-from shutil import which
 
 
 validate_ip = re.compile(
@@ -21,7 +20,6 @@ win64_bin_url = "https://github.com/shadow1ng/fscan/releases/download/1.8.2/fsca
 linux_bin_url = "https://github.com/shadow1ng/fscan/releases/download/1.8.2/fscan_amd64"
 os = name
 wd = getcwd()
-_chmod = which("chmod")
 console = Console()
 bin_path = path.join(wd, "core", "bin")
 
@@ -81,8 +79,6 @@ class Offensive:
                     print(
                         f"{bcolors.OKCYAN}[*] Downloading fscan_amd64...{bcolors.ENDC}")
                     wget.download(win64_bin_url, bin_path)
-                    cmd = f"{_chmod} +x {__path__}"
-                    system(cmd)
             else:
                 __path__ = path.join(wd, "core", "bin", "fscan_amd64")
                 if path.exists(__path__) and path.isfile(__path__):
@@ -114,10 +110,8 @@ class Offensive:
                     system(cmd)
                 else:
                     __path__ = path.join(wd, "core", "bin", "fscan_amd64")
-                    cmd = f"{_chmod} +x {__path__}"
-                    cmd = split(cmd)
-                    call(cmd)
-                    cmd = f"{_chmod} +x {bin_path}"
+                    perms = "777"
+                    chmod(__path__, int(perms, 8))
                     cmd = f"{__path__} -h {self.input} -full -no"
                     cmd = split(cmd)
                     call(cmd)

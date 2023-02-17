@@ -5,7 +5,7 @@ from shlex import split
 from os import name, system
 from shutil import which
 from rich.console import Console
-from core.misc import bcolors
+from .utils import bcolors
 
 
 console = Console()

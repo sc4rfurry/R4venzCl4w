@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # ~*- coding: utf-8 -*-
 from proxy_ninja_ng import fetch_proxies_list, fetch_proxies_json
-from core.misc import bcolors
+from .utils import bcolors
 from rich.console import Console
 from art import text2art
 from sys import exit

@@ -20,3 +20,4 @@ shodan
 wget
 proxy-ninja-ng
 emoji
+aslookup

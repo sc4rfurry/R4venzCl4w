@@ -8,7 +8,7 @@ from sys import exit
 from shutil import which
 from shlex import split as sp
 from os import getcwd
-from core.misc import bcolors
+from .utils import bcolors
 
 console = Console()
 linux_bin_url = "https://github.com/sc4rfurry/nimd4-ng/releases/download/v1.0/nimd4_linux_amd64"

@@ -7,7 +7,7 @@ from art import text2art
 from os import name as nm
 from user_agent import generate_user_agent
 import json
-from core.misc import bcolors
+from .utils import bcolors
 
 
 disable_warnings()

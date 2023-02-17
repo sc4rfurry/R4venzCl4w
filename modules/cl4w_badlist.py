@@ -5,7 +5,7 @@ from shlex import split
 from os import name, system
 from shutil import which
 from os import path, getcwd
-from core.misc import bcolors
+from .utils import bcolors
 
 
 os = name

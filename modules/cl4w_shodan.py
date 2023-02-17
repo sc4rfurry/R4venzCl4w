@@ -4,7 +4,7 @@ from rich.console import Console
 from rich.panel import Panel
 from os import name as nm, environ, path, getcwd
 from load_xl import read_config_file
-from core.misc import bcolors
+from .utils import bcolors
 
 
 try:
