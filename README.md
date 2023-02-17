@@ -6,6 +6,23 @@
 # R4venzCl4w (◣_◢)ノ-=≡≡卍
 A modular Framework for **Pentesters** and **Bug Hunters** written in Python3.
 
+## Table of Contents
+- [R4venzCl4w (◣_◢)ノ-=≡≡卍]
+    - [Technologies & Tools](#technologies--tools)
+    - [Requirements](#requirements)
+    - [Features](#features)
+        - [Features Implementation](#features-implementation)
+    - [Installation](#installation)
+    - [Config](#config)
+    - [Usage](#usage)
+        - [Options](#options)
+        - [Example](#example)
+    - [Todo](#todo)
+    - [Contributing](#contributing)
+    - [License](#license)
+
+#
+
 ### 🔧 Technologies & Tools
 
 ![](https://img.shields.io/badge/OS-Linux-informational?style=flat-square&logo=ubuntu&logoColor=white&color=5194f0&bgcolor=110d17)
@@ -28,21 +45,9 @@ A modular Framework for **Pentesters** and **Bug Hunters** written in Python3.
 - Run Host Enumeration on IP, Domain, IP Range, or Selected IPs   [`fscan`](https://github.com/shadow1ng/fscan).
 - Asn Lookup  ( **Ip2Asn** and **ASN** to **CIDR** )
 
-> `Note:` Please keep in mind that the tool is still in development and more features will be added soon.
-#
+> `Note:` Please keep in mind that the tool is still in development and more features will be a
 
-## Table of Contents
-- [R4venzCl4w (◣_◢)ノ-=≡≡卍](#r4venzcl4w-ノ-)
-    - [Installation](#installation)
-    - [Config](#config)
-    - [Usage](#usage)
-        - [Options](#options)
-        - [Example](#example)
-    - [Todo](#todo)
-    - [Contributing](#contributing)
-    - [License](#license)
-
- ### Features Implementation
+#### Features Implementation
 * IP Enumeration
     - [x] Dns Lookup
     - [x] Reverse Dns Lookup
