@@ -82,7 +82,7 @@ class AsnLookup:
                 print(
                     f"\n{bcolors.OKCYAN}[*] Creating directory structure...{bcolors.ENDC}")
                 print(
-                    f"\n{bcolors.OKCYAN}[*] Creating {bin_path}...{bcolors.ENDC}")
+                    f"{bcolors.OKCYAN}[*] Creating {bin_path}...{bcolors.ENDC}")
                 makedirs(bin_path)
                 return True
         except Exception as e:
@@ -96,23 +96,11 @@ class AsnLookup:
     def download_bins(self):
         if os == "nt":
             try:
-                if not path.exists(bin_path):
-                    try:
-                        makedirs(bin_path)
-                    except Exception as e:
-                        console.print(f"\n[bold red]Error: {e}[/bold red]")
-                        exit(1)
-                    except KeyboardInterrupt:
-                        console.print("\n[yellow bold]" + "[~] " + "[/yellow bold]",
-                                      "[red bold]Keyboard Interrupted[/red bold]", style="blink")
-                        exit(1)
-                else:
-                    pass
                 __path = path.join(bin_path, "asnmap.exe")
                 __path__ = r'"' + __path__ + r'"'
                 if path.exists(__path__) and path.isfile(__path__):
                     print(
-                        f"\n\t{bcolors.OKGREEN}[*] AsnMap found..!{bcolors.ENDC}")
+                        f"\n\n  {bcolors.OKGREEN}[*] AsnMap found..!{bcolors.ENDC}")
                     return True
                 else:
                     print(
@@ -134,7 +122,7 @@ class AsnLookup:
                 __path = path.join(bin_path, "asnmap")
                 if path.exists(__path) and path.isfile(__path):
                     print(
-                        f"\n\t{bcolors.OKGREEN}[*] AsnMap found..!{bcolors.ENDC}")
+                        f"\n\n  {bcolors.OKGREEN}[*] AsnMap found..!{bcolors.ENDC}")
                     return True
                 else:
                     print(
