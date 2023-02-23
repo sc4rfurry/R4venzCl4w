@@ -44,6 +44,7 @@ A modular Framework for **Pentesters** and **Bug Hunters** written in Python3.
 - Fetch the Public Proxies (HTTPS, SOCKS4)
 - Run Host Enumeration on IP, Domain, IP Range, or Selected IPs   [`fscan`](https://github.com/shadow1ng/fscan).
 - Asn Lookup  ( **Ip2Asn** and **ASN** to **CIDR** )
+- WAF Fingerprinting with option for checking Generic or (**153** WAFs)
 
 > `Note:` Please keep in mind that the tool is still in development and more features will be a
 
@@ -64,6 +65,9 @@ A modular Framework for **Pentesters** and **Bug Hunters** written in Python3.
     > Visit the [**fscan**](https://github.com/shadow1ng/fscan) repository for more information. For `usage` read the [**README.md**](https://github.com/shadow1ng/fscan/blob/main/README_EN.md) file. ( Use on your own risk ..!)
 * Proxy Fetcher
     - [x] Fetch the Public Proxies (HTTPS, SOCKS4)
+* WAF Fingerprinting
+    - [x] WAF Fingerprinting with option for checking Generic or (**153** WAFs)
+    - [x] Could check single domain or multiple domains from a file.
 - Domain Enumeration
     - [ ] Going to be implemented in **ver: 1.3.0**
     > `Current version: 1.2.1` -   **Stable**
@@ -125,6 +129,7 @@ python3 main.py -i [IP Address]
         -x              Run Host Enumeration on IP, Domain, IP Range, or Selected IPs       # (fscan).
         -r              Render the README.md file
         -fp             Fetch the Public Proxies (HTTPS, SOCKS4)
+        -waf            WAF Fingerprinting with option for checking Generic or (153 WAFs)
         -h              Help Menu
 ```
 
@@ -139,6 +144,7 @@ python3 main.py -i [IP Address]
 5) python3 main.py -x example.com
 6) python3 main.py -r
 7) python3 main.py -fp
+8) python3 main.py -waf
 ```
 #
 
