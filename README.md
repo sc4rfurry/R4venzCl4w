@@ -46,7 +46,7 @@ A modular Framework for **Pentesters** and **Bug Hunters** written in Python3.
 - Asn Lookup  ( **Ip2Asn** and **ASN** to **CIDR** )
 - WAF Fingerprinting with option for checking Generic or (**153** WAFs)
 
-> `Note:` Please keep in mind that the tool is still in development and more features will be a
+> `Note:` Please keep in mind that the tool is still in development and more features will be added in the future.
 
 #### Features Implementation
 * IP Enumeration
