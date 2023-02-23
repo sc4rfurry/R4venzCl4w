@@ -137,59 +137,6 @@ class Fingerprint:
         Curs3AF().check_dir_struct()
         Curs3AF().download_bins()
 
-    def __yup__(self):
-        global isUrl, isFile
-        try:
-            self.isGeneric = input(
-                f"\n\n{bcolors.BOLD}{bcolors.OKBLUE}[+]{bcolors.ENDC} {bcolors.BOLD}{bcolors.OKCYAN}Do you wanna run Generic Scan (y/n):{bcolors.ENDC} ")
-            isSingle = input(
-                f"{bcolors.BOLD}{bcolors.OKBLUE}[+]{bcolors.ENDC} {bcolors.BOLD}{bcolors.OKCYAN}Do you wanna Scan Single Domain or Multiple (s/f):{bcolors.ENDC} ")
-            if self.isGeneric.lower() == "y" or self.isGeneric.lower() == "yes":
-                if isSingle.lower() == "s" or isSingle.lower() == "single":
-                    self.url = input(
-                        f"\n{bcolors.BOLD}{bcolors.OKBLUE}[+]{bcolors.ENDC} {bcolors.BOLD}{bcolors.HEADER}Enter URL to Scan (example.com):{bcolors.ENDC} ")
-                    tsd, td, tsu = extract(self.url)
-                    self.url = td + '.' + tsu
-                    isUrl = True
-                    return isUrl, self.url
-                elif isSingle.lower() == "f" or isSingle.lower() == "file":
-                    self.file = input(
-                        f"\n{bcolors.BOLD}{bcolors.OKBLUE}[+]{bcolors.ENDC} {bcolors.BOLD}{bcolors.HEADER}Enter Path to File:{bcolors.ENDC} ")
-                    isFile = True
-                    return isFile, self.file
-                else:
-                    console.print(
-                        f"\n{bcolors.BOLD}{bcolors.FAIL}[~] Invalid Input..!{bcolors.ENDC}")
-                    exit(1)
-            elif self.isGeneric.lower() == "n" or self.isGeneric.lower() == "no":
-                if isSingle.lower() == "s" or isSingle.lower() == "single":
-                    self.url = input(
-                        f"\n{bcolors.BOLD}{bcolors.OKBLUE}[+]{bcolors.ENDC} {bcolors.BOLD}{bcolors.HEADER}Enter URL to Scan (example.com):{bcolors.ENDC} ")
-                    tsd, td, tsu = extract(self.url)
-                    self.url = td + '.' + tsu
-                    isUrl = True
-                    return isUrl, self.url
-                elif isSingle.lower() == "f" or isSingle.lower() == "file":
-                    self.file = input(
-                        f"\n{bcolors.BOLD}{bcolors.OKBLUE}[+]{bcolors.ENDC} {bcolors.BOLD}{bcolors.HEADER}Enter Path to File:{bcolors.ENDC} ")
-                    isFile = True
-                    return isFile, self.file
-                else:
-                    console.print(
-                        f"\n{bcolors.BOLD}{bcolors.FAIL}[~] Invalid Input..!{bcolors.ENDC}")
-                    exit(1)
-            else:
-                console.print(
-                    f"\n{bcolors.BOLD}{bcolors.FAIL}[~] Invalid Input..!{bcolors.ENDC}")
-                exit(1)
-        except Exception as e:
-            console.print(f"\n[bold red]Error: {e}[/bold red]")
-            exit(1)
-        except KeyboardInterrupt:
-            console.print("\n[yellow bold]" + "[~] " + "[/yellow bold]",
-                          "[red bold]Keyboard Interrupted[/red bold]", style="blink")
-            exit(1)
-
     def check_file(self):
         try:
             if path.exists(self.file) and path.isfile(self.file):
@@ -207,7 +154,6 @@ class Fingerprint:
             exit(1)
 
     def run(self):
-        # self.__yup__()
         try:
             self.isGeneric = input(
                 f"\n\n{bcolors.BOLD}{bcolors.OKBLUE}[+]{bcolors.ENDC} {bcolors.BOLD}{bcolors.OKCYAN}Do you wanna run Generic Scan (y/n):{bcolors.ENDC} ")
