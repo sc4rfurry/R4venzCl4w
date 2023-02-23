@@ -9,8 +9,11 @@ from modules.cl4w_shodan import Shodan, shodan__banner__
 from modules.cl4w_offensive import Offensive, o3__banner__
 from modules.cl4w_fetch_proxies import ProxyNinja, xxx__banner__
 from modules.cl4w_asnlookup import AsnLookup, asn__banner__
+from modules.cl4w_waf_utils import Fingerprint
 from core.ip_lookup import ProgressBar, DisplayDns, DisplayWhois
 from core.misc import Cl4w, Readme
+from core.misc import bcolors
+from modules.utils import DoClean
 import argparse
 from sys import exit
 
@@ -21,11 +24,14 @@ def main():
     parser.add_argument("-d", help="Domain to Enumerate")
     parser.add_argument(
         "-x", help="Run Host Enumeration on IP, Domain, IP Range, or Selected IP's. example: 192.168.11.11 | 142.250.181.174-255 | 192.168.11.11,192.168.11.12")
+    parser.add_argument(
+        "-waf", help="Waf FingerPrinting (153 waf's)", action='store_true')
     parser.add_argument("-fp", help="Fetch https/socks4 Proxies")
     parser.add_argument(
         "-r", help="Displays the Readme file", action='store_true')
     args = parser.parse_args()
     Cl4w.banner(self=Cl4w)
+    DoClean().clean()
     if args.i:
         ip = args.i
         ascii_art().banner()
@@ -51,24 +57,25 @@ def main():
             asn__banner__()
             AsnLookup(ip).asnmap()
         else:
-            print("Invalid IP address")
+            print(f"{bcolors.FAIL}[-] Invalid IP address{bcolors.ENDC}")
             exit(1)
     elif args.d:
-        domain = args.d
-        print("Going to be implemented in ver: 1.3.0")
+        print(
+            f" {bcolors.OKBLUE}[*] Going to be implemented in ver: {bcolors.ENDC}1.3.0")
     elif args.x:
         input = args.x
         o3__banner__()
         Offensive(input).o3__scan__()
+    elif args.waf:
+        Fingerprint().run()
     elif args.r:
         Readme().render()
     elif args.fp:
         proxy_type = args.fp
         xxx__banner__()
         print(ProxyNinja(proxy_type).get_proxies())
-
     else:
-        print("Please enter an IP address or domain name")
+        print(f"{bcolors.FAIL}[-] Please specify an argument{bcolors.ENDC}")
         exit(1)
 
 

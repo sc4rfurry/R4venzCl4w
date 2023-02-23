@@ -21,3 +21,4 @@ wget
 proxy-ninja-ng
 emoji
 aslookup
+tldextract

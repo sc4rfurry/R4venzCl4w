@@ -108,8 +108,13 @@ class AsnLookup:
                     print(
                         f"{bcolors.OKCYAN}[*] Downloading AsnMap_amd64...{bcolors.ENDC}")
                     download(win64_bin_url, out=bin_path)
-                    cmd = f'unzip {bin_path}\\asnmap_1.0.0_linux_amd64.zip -d {bin_path}'
-                    check_output(split(cmd), shell=True, stderr=PIPE)
+                    try:
+                        with ZipFile(f"{bin_path}\\asnmap_1.0.0_windows_amd64.zip", 'r') as zipObj:
+                            zipObj.extractall(bin_path)
+                    except Exception as e:
+                        console.print(f"\t[bold red]Error: {e}[/bold red]")
+                        exit(1)
+                    return True
             except Exception as e:
                 console.print(f"\n[bold red]Error: {e}[/bold red]")
                 exit(1)
